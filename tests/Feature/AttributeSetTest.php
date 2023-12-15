@@ -13,11 +13,11 @@ class AttributeSetTest extends TestCase
     /** @test */
     public function it_must_be_associated_with_entity()
     {
-        $entity = factory(Entity::class)->create([
+        $entity = Entity::factory()->create([
             'entity_code' => 'custom'
         ]);
 
-        factory(AttributeSet::class, 5)->create([
+        AttributeSet::factory(5)->create([
             'entity_id' => $entity->entity_id,
         ]);
 
@@ -27,15 +27,15 @@ class AttributeSetTest extends TestCase
     /** @test */
     public function it_can_have_multiple_group()
     {
-        $entity = factory(Entity::class)->create([
+        $entity = Entity::factory()->create([
             'entity_code' => 'custom'
         ]);
 
-        $set = factory(AttributeSet::class)->create([
+        $set = AttributeSet::factory()->create([
             'entity_id' => $entity->entity_id,
         ]);
 
-        factory(AttributeGroup::class, 5)->create([
+        AttributeGroup::factory(5)->create([
             'attribute_set_id' => $set->getKey(),
         ]);
 
@@ -46,15 +46,15 @@ class AttributeSetTest extends TestCase
     /** @test */
     public function it_must_retrive_associated_attributes()
     {
-        $entity = factory(Entity::class)->create([
+        $entity = Entity::factory()->create([
             'entity_code' => 'custom'
         ]);
 
-        $set = factory(AttributeSet::class)->create([
+        $set = AttributeSet::factory()->create([
             'entity_id' => $entity->entity_id,
         ]);
 
-        $group = factory(AttributeGroup::class)->create([
+        $group = AttributeGroup::factory()->create([
             'attribute_set_id' => $set->getKey(),
         ]);
 

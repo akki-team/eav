@@ -24,11 +24,11 @@ class EntityTest extends TestCase
     {
         parent::setUp();
 
-        $this->entity = factory(Entity::class)->create([
+        $this->entity = Entity::factory()->create([
             'entity_code' => 'custom'
         ]);
 
-        $this->entity_flat = factory(Entity::class)->states('flat')->create([
+        $this->entity_flat = Entity::factory()->flat()->create([
             'entity_code' => 'custom_1'
         ]);
     }
@@ -120,7 +120,7 @@ class EntityTest extends TestCase
     /** @test */
     public function it_must_have_default_attribute_set()
     {
-        $set = factory(AttributeSet::class)->create([
+        $set = AttributeSet::factory()->create([
             'entity_id' => $this->entity->entity_id,
         ]);
 

@@ -13,15 +13,15 @@ class AttributeGroupTest extends TestCase
     /** @test */
     public function it_must_retrive_associated_attributes()
     {
-        $entity = factory(Entity::class)->create([
+        $entity = Entity::factory()->create([
             'entity_code' => 'custom'
         ]);
 
-        $set = factory(AttributeSet::class)->create([
+        $set = AttributeSet::factory()->create([
             'entity_id' => $entity->entity_id,
         ]);
 
-        $group = factory(AttributeGroup::class)->create([
+        $group = AttributeGroup::factory()->create([
             'attribute_set_id' => $set->getKey(),
         ]);
 

@@ -21,7 +21,7 @@ class AttributeTest extends TestCase
     {
         parent::setUp();
 
-        $this->entity = factory(Entity::class)->create([
+        $this->entity = Entity::factory()->create([
             'entity_code' => 'custom'
         ]);
     }

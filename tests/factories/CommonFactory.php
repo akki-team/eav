@@ -1,31 +1,30 @@
 <?php
 
-use Faker\Generator;
 use Eav\AttributeSet;
 use Eav\AttributeGroup;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-/*
-|--------------------------------------------------------------------------
-| Model Factories
-|--------------------------------------------------------------------------
-|
-| Here you may define all of your model factories. Model factories give
-| you a convenient way to create models for testing and seeding your
-| database. Just tell the factory how a default model should look.
-|
-*/
-
-$factory->define(AttributeSet::class, function (Generator $faker) {
-    return [
-        'attribute_set_name' => $faker->unique()->userName,
-        'entity_id' => null,
-    ];
-});
+class AttributeSetFactory extends Factory
+{
+    protected $model = AttributeSet::class;
+    public function definition()
+    {
+        return [
+            'attribute_set_name' => $this->faker->unique()->userName,
+            'entity_id' => null,
+        ];
+    }
+}
 
 
-$factory->define(AttributeGroup::class, function (Generator $faker) {
-    return [
-        'attribute_set_id' => null,
-        'attribute_group_name' => $faker->unique()->userName,
-    ];
-});
+class AttributeGroupFactory extends Factory
+{
+    protected $model = AttributeGroup::class;
+    public function definition()
+    {
+        return [
+            'attribute_set_id' => null,
+            'attribute_group_name' => $this->faker->unique()->userName,
+        ];
+    }
+}
